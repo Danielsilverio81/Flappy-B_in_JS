@@ -1,7 +1,13 @@
 * {box-sizing: border-box; margin: 0;}
+html {
+    height: 100%;
+}
 
 body {
-    background-color: #191970;
+    margin: 0;
+    background-color: #0D262D;
+    height: 100%;
+    width: 100%;
 }
 
 .conteudo {
@@ -10,10 +16,10 @@ body {
 }
 
 [flappy] {
-    margin: 10px;
+    margin: 3px auto;
     position: relative;
     border: 5px solid dodgerblue;
-    height: 700px;
+    height: 515px;
     width: 100%;
     max-width: 1200px;
     background-color: deepskyblue;
