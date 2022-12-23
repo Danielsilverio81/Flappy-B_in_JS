@@ -1,0 +1,5 @@
+@media (max-width: 500px) {
+    .bird {width: 20px; height: auto;}
+    .barrier .body {width: 40px;}
+    .barrier .borde {width: 50px; }
+}
