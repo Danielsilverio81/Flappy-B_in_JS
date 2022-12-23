@@ -66,15 +66,35 @@ function Bird(heighGame) {
     let fly = false;
 
     this.element = newElement('img', 'bird');
-    this.element.src = 'assets/img/passaro.png'
+    this.element.src = '../assets/img/passaro.png'
 
-    this.getY = () => parsetInt(This.element.style.bottom.split('px')[0]);
+    this.getY = () => parseInt(this.element.style.bottom.split('px')[0]);
     this.setY = y => this.element.style.bottom = `${y}px`;
+
+    window.onkeydown = e => fly = true;
+    window.onkeyup = e => fly = false;
+
+    this.animation = () => {
+        const newY = this.getY() + (fly ? 8 : -6);
+        const heighMax = heighGame - this.element.clientHeight;
+
+        if(newY <= 0) {
+            this.setY(0)
+        } else if(newY >= heighMax) {
+            this.setY(heighMax)
+        } else {
+            this.setY(newY)
+        }
+    }
+    this.setY(heighGame / 2)
 }
 
-//const areaJogo = document.querySelector('[flappy]');
-//const barreiras = new Barriers(700, 1200, 400, 347)
-//barreiras.pairs.forEach(pair => areaJogo.appendChild(pair.element))
-//setInterval(() => {
- //   barreiras.animation()
- // }, 20)
+const areaJogo = document.querySelector('[flappy]');
+const barreiras = new Barriers(700, 1200, 400, 347);
+const passaro = new Bird(550)
+areaJogo.appendChild(passaro.element)
+barreiras.pairs.forEach(pair => areaJogo.appendChild(pair.element))
+ setInterval(() => {
+    barreiras.animation()
+    passaro.animation()
+  }, 20)
