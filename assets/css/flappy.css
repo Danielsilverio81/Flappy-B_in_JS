@@ -3,6 +3,11 @@ html {
     height: 100%;
 }
 
+@font-face {
+    font-family: 'Pixel';
+    src:url('../../fonts/Pixel.ttf')
+}
+
 body {
     margin: 0;
     background-color: #0D262D;
