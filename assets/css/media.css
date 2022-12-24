@@ -3,3 +3,8 @@
     .barrier .body {width: 55px;}
     .barrier .borde {width: 65px; }
 }
+
+@media (max-width: 354px) {
+    h2 {font-size: 1.3em;}
+    button {padding: 8px 10px;}
+}

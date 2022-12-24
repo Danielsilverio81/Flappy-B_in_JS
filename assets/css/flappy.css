@@ -31,6 +31,51 @@ body {
     overflow: hidden;
 }
 
+.choices {
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(229,128,6,1) 0%, rgba(229,128,6,1) 63%, rgba(255,161,0,1) 100%);
+    margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    position: absolute;
+    top: 90px;
+}
+
+h2 {
+    font-size: 2.3em;
+    color: #0D262D;
+}
+
+button {
+    text-align: center;
+    background-color: #8B4513;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.377);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:active {
+    transform: scale(0.96);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.360);
+}
+
+button:hover {
+    color: red;
+    background: white;
+}
+
 .bird {
     position: absolute;
     width: 45px;
@@ -68,6 +113,7 @@ body {
 }
 
 .progress {
+    color: rgba(229,128,6,1);
     position: absolute;
     top: 10px;
     right: 10px;

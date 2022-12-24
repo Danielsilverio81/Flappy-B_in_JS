@@ -127,7 +127,7 @@ function FlappyBird(valueChange) {
     const width = gameArea.clientWidth;
 
     const progress = new Progress;
-    const barriers = new Barriers(height, width, 245, 340, valueChange, () => progress.newPoints(++points));
+    const barriers = new Barriers(height, width, 241, 340, valueChange, () => progress.newPoints(++points));
     const bird = new Bird(height);
 
     gameArea.appendChild(progress.element);
@@ -141,13 +141,62 @@ function FlappyBird(valueChange) {
             bird.animation()
 
             if(collided(bird, barriers)) {
+                gameArea.innerHTML = '<h2>Game Over</h2>';
                 clearInterval(timer);
+                setInterval(() => document.location.reload(), 2100)
             }
         }, 20)
     }
 }
 
-function initialDisplay() {
-    
+function InitialDisplay() {
+    this.element = newElement('div', 'choices');
+    const text = newElement('div', 'text');
+    const easy = newElement('button', 'easy' );
+    const medium = newElement('button', 'medium' );
+    const hard = newElement('button', 'hard' );
+    easy.innerText = 'Fácil';
+    medium.innerText = 'Médio';
+    hard.innerText = 'Hard';
+    text.innerHTML = '<h2>Escolha a dificuldade</h2>';
+    this.element.appendChild(easy);
+    this.element.appendChild(medium);
+    this.element.appendChild(hard);
+    this.element.appendChild(text);
+
+    this.startGame = () => {
+        const gameArea = document.querySelector('[flappy]');
+        const display = new InitialDisplay();
+        gameArea.appendChild(display.element)
+        const choicesSpace = document.querySelector('.choices');
+        const easyClass = document.querySelector('.easy');
+        const medClass = document.querySelector('.medium');
+        const hardClass = document.querySelector('.hard');
+        document.addEventListener('click', function(e) {
+            let elem = e.target;
+            if(elem == easyClass) {
+              const timer2 = setInterval(() => {
+                choicesSpace.style.display = 'none';
+                new FlappyBird(2).start();
+                clearInterval(timer2);
+               }, 900)
+            } else if(elem == medClass) {
+              const timer3 = setInterval(() => {
+                choicesSpace.style.display = 'none';
+                new FlappyBird(4).start();
+                clearInterval(timer3);
+              }, 900)
+            } else {
+                const timer4 = setInterval(() => {
+                choicesSpace.style.display = 'none';
+                new FlappyBird(6).start();
+                clearInterval(timer4);
+              }, 900)
+            }
+        })
+    }
 }
+
+
+new InitialDisplay().startGame()
 
