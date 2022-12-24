@@ -179,19 +179,21 @@ function InitialDisplay() {
                 choicesSpace.style.display = 'none';
                 new FlappyBird(2).start();
                 clearInterval(timer2);
-               }, 900)
+            }, 200)
             } else if(elem == medClass) {
               const timer3 = setInterval(() => {
                 choicesSpace.style.display = 'none';
                 new FlappyBird(4).start();
                 clearInterval(timer3);
-              }, 900)
-            } else {
+              }, 200)
+            } else if(elem == hardClass) {
                 const timer4 = setInterval(() => {
                 choicesSpace.style.display = 'none';
                 new FlappyBird(6).start();
                 clearInterval(timer4);
-              }, 900)
+              }, 200)
+            } else {
+                return;
             }
         })
     }

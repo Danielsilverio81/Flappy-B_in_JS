@@ -1,10 +1,14 @@
 @media (max-width: 500px) {
+    h2 {font-size: 1.4em;}
+    button {padding: 10px 15px;}
     .bird {width: 33px; height: auto;}
     .barrier .body {width: 55px;}
     .barrier .borde {width: 65px; }
+    .choices {height: 300px; width: 300px;}
 }
 
 @media (max-width: 354px) {
-    h2 {font-size: 1.3em;}
-    button {padding: 8px 10px;}
+    h2 {font-size: 1.2em;}
+    button {padding: 7px 8px;}
+    .choices {padding: 10px; height: 250px; width: 250px;}
 }
