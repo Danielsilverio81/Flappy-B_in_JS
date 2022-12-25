@@ -64,6 +64,7 @@ function Barriers(height, width, opening, espace, valueChange, setPont) {
 
 function Bird(heighGame) {
     let fly = false;
+    const gameArea = document.querySelector('[flappy]');
 
     this.element = newElement('img', 'bird');
     this.element.src = '../assets/img/passaro.png'
@@ -73,6 +74,9 @@ function Bird(heighGame) {
 
     window.onkeydown = e => fly = true;
     window.onkeyup = e => fly = false;
+    gameArea.onmousedown = e => fly = true;
+    gameArea.onmouseup = e => fly = false;
+
 
     this.animation = () => {
         const newY = this.getY() + (fly ? 8 : -6);
