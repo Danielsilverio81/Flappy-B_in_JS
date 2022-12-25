@@ -74,12 +74,20 @@ function Bird(heighGame) {
 
     window.onkeydown = e => fly = true;
     window.onkeyup = e => fly = false;
-    gameArea.onmousedown = e => fly = true;
-    gameArea.onmouseup = e => fly = false;
+    document.addEventListener('click', function(e) {
+        let elem = e.target;
+        if(elem == gameArea) {
+            fly = true;
+        }
+        setTimeout(() => {
+            fly = false
+        }, 146)
+
+    })
 
 
     this.animation = () => {
-        const newY = this.getY() + (fly ? 8 : -6);
+        const newY = this.getY() + (fly ? 8 : -5);
         const heighMax = heighGame - this.element.clientHeight;
 
         if(newY <= 0) {
@@ -131,7 +139,7 @@ function FlappyBird(valueChange) {
     const width = gameArea.clientWidth;
 
     const progress = new Progress;
-    const barriers = new Barriers(height, width, 241, 340, valueChange, () => progress.newPoints(++points));
+    const barriers = new Barriers(height, width, 362, 350, valueChange, () => progress.newPoints(++points));
     const bird = new Bird(height);
 
     gameArea.appendChild(progress.element);
